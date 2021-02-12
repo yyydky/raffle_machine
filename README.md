@@ -9,7 +9,7 @@ Or just cannot decide what to have for today's lunch?
 Try using this raffle machine whenever you need to pick something randomly!
 
 ## Usage:
-1. Download the folder and open it in Matlab.
+1. Download the entrie folder and open in Matlab.
 2. Enter all inputs in the first sheet of inputs.xlsx in the folder.
 3. run raffle_machine.m
 4. Get all items rolling by pressing the handle
