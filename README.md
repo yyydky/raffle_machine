@@ -23,3 +23,6 @@ Try using this raffle machine whenever you need to pick something randomly!
 ## Availble controls on the screen:
 1. RESET button
 2. Machine handle
+
+## Environment:
+MATLAB_R2020b
