@@ -1,7 +1,7 @@
 # raffle_machine
 Raffle Simulation using Matlab
 
-![](raffle.gif =600x300)
+![](raffle.gif width="600" height="300")
 
 ## Goal:
 Wanna hold a raffle for the holiday party?
@@ -15,10 +15,10 @@ Try using this raffle machine whenever you need to pick something randomly!
 4. Get all items rolling by pressing the handle
 5. Press the handle again, and one item will be drawn and presented.
 6. A message box will pop out if there is only one item left in the list.
-![](msgbox.png =600x300)
+![](msgbox.png width="600" height="300")
 7. Press RESET button to start over.
 
-![](reset.gif =600x300)
+![](reset.gif width="600" height="300")
 
 ## Availble controls on the screen:
 1. RESET button
