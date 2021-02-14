@@ -1,9 +1,10 @@
 function raffle_machine
 close all
+clear global
 clc
 global GUI txt filePath i handle1;
 filePath = 'input.xlsx';
-[num, txt]= xlsread(filePath);
+
 i=1;
 handle1 = false;
 
@@ -88,16 +89,35 @@ GUI.show = uicontrol('Parent', GUI.h,...
     'HorizontalAlignment', 'center',...
     'string', 'Ready',...
     'BackgroundColor','white');
+
+try
+    [num, txt]= xlsread(filePath);
+    if size(txt,1) <= 1
+        msgbox("Nothing to raffle")
+    end
+catch
+    msgbox("Please double check input.xlsx")
+end
+
 end
 
 %By clicking the button, read in the inputs from xlsx again
 function reset_on_Callback(~,~)
 global GUI txt filePath;
-disp(["lens of items before: ", size(txt,1)]);
-[num, txt]= xlsread(filePath);
-set(GUI.last_result_show, 'string', '');
-disp(["lens of items after: ", size(txt,1)]);
-pause(0.5)
+
+try
+    disp(["lens of items before: ", size(txt,1)]);
+    [num, txt]= xlsread(filePath);
+    if size(txt,1) <= 1
+        msgbox("Nothing to raffle")
+    end
+    set(GUI.last_result_show, 'string', '');
+    disp(["lens of items after: ", size(txt,1)]);
+    pause(0.5)
+catch
+    msgbox("Please double check input.xlsx")
+end
+
 end
 
 %main fcn for rolling the items and drawing 
@@ -105,8 +125,8 @@ function rolling(hObj, event, handles)
 global GUI txt handle1 i;
 
 if strcmp(get(hObj, 'String'), ' ')
-    if size(txt,1) == 1
-        msgbox('Only one left!');
+    if size(txt,1) <= 1
+        msgbox('Wanna reset?');
     end
     
     handle1 = true;
@@ -139,7 +159,7 @@ else
     set(GUI.stop, 'visible', 'off')
 
     n=size(txt,1);
-    if n ~= 1
+    if n > 1 
         disp(["lens: ", n]);
         set(GUI.show,'string',txt(i));
         set(GUI.last_result_show, 'string', txt(i));
